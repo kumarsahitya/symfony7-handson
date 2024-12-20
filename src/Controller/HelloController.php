@@ -18,10 +18,10 @@ class HelloController
      *
      * @return Response A response object containing a greeting message.
      */
-    #[Route('/', name: 'app_index')]
-    public function index(): Response
+    #[Route('/{limit<\d+>?3}', name: 'app_index')]
+    public function index(int $limit): Response
     {
-        return new Response(implode(', ', $this->greetings));
+        return new Response(implode(', ', array_slice($this->greetings, 0, $limit)));
     }
 
     /**
@@ -30,8 +30,8 @@ class HelloController
      * @param int|string $id The identifier for the greeting message to be returned.
      * @return Response A response object containing the specified greeting message.
      */
-    #[Route('/messages/{id}', name: 'app_show_one')]
-    public function showOne($id): Response
+    #[Route('/messages/{id<\d+>}', name: 'app_show_one')]
+    public function showOne(int $id): Response
     {
         return new Response($this->greetings[$id]);
     }
