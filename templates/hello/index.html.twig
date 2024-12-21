@@ -1,7 +1,13 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 <div>
-    {{ message }}
+    {% if messages|length > 0 %}
+        {% for message in messages %}
+            <div>{{message}}</div>
+        {% endfor %}
+    {% else %}
+        There's nothing here yet!
+    {% endif %}
 </div>
 {% endblock %}
 {% block title %}I've changed the title!{% endblock %}
