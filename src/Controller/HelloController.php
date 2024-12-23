@@ -9,9 +9,9 @@ use Symfony\Component\Routing\Attribute\Route;
 class HelloController extends AbstractController
 {
     private array $messages = [
-        'Hello',
-        'Hi',
-        'Bye!',
+        ['message' => 'Hello', 'created' => '2022/06/12'],
+        ['message' => 'Hi', 'created' => '2022/04/12'],
+        ['message' => 'Bye!', 'created' => '2021/05/12']
     ];
 
     /**
@@ -44,7 +44,7 @@ class HelloController extends AbstractController
         return $this->render(
             'hello/show_one.html.twig',
             [
-                'message' => $this->greetings[$id]
+                'message' => $this->messages[$id]
             ]
         );
     }
