@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use DateTime;
 use App\Entity\MicroPost;
 use App\Repository\MicroPostRepository;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -46,6 +46,8 @@ class MicroPostController extends AbstractController
             $entityManager->persist($post);
             $entityManager->flush();
             // Add a flash
+            $this->addFlash('success', 'Your micro post have been addded.');
+            return $this->redirectToRoute('app_micro_post');
             // Redirect
         }
         return $this->render(
