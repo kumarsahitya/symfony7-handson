@@ -1,4 +1,5 @@
-{{ form_start(form) }}
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+{% form_theme form 'form/fields.html.twig' %}
 <div>{{ form_errors(form)}}</div>
 <div>
     {{ form_label(form.title, 'Please enter the title', {'label_attr': {'class': 'block text-sm text-gray-700 dark:text-gray-300 font-medium'}}) }}
