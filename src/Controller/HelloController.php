@@ -2,9 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
+use App\Entity\MicroPost;
 use App\Entity\User;
 use App\Entity\UserProfile;
+use App\Repository\MicroPostRepository;
 use App\Repository\UserProfileRepository;
+use DateTime;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -23,16 +28,29 @@ class HelloController extends AbstractController
      * @return Response A response object containing a greeting message.
      */
     #[Route('/', name: 'app_index')]
-    public function index(UserProfileRepository $profiles): Response
+    public function index(MicroPostRepository $posts, EntityManagerInterface $entityManager): Response
     {
+//        $post = new MicroPost();
+//        $post->setTitle('Hello');
+//        $post->setText('Hello');
+//        $post->setCreated(new DateTime());
+
+//        $comment = new Comment();
+//        $comment->setText('Hello');
+//        $comment->setPost($post);
+//        $post->addComment($comment);
+//        $entityManager->persist($post);
+//        $entityManager->flush();
+
 //        $user = new User();
 //        $user->setEmail('email@email.com');
 //        $user->setPassword('12345678');
 //
 //        $profile = new UserProfile();
 //        $profile->setUser($user);
-//        $profiles->add($profile, true);
-//
+//        $entityManager->persist($profile);
+//        $entityManager->flush();
+
 //        $profile = $profiles->find(1);
 //        $profiles->remove($profile, true);
 
