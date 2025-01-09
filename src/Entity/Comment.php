@@ -7,6 +7,7 @@ use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use DateTime;
 
 
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
@@ -35,7 +36,7 @@ class Comment
 
     public function __construct()
     {
-        $this->created = new DateTime;
+        $this->created = new DateTime();
     }
 
     public function getId(): ?int
