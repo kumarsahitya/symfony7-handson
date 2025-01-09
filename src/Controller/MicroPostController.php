@@ -51,6 +51,7 @@ class MicroPostController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $post = $form->getData();
             $post->setCreated(new DateTime());
+            $post->setAuthor($this->getUser());
             $entityManager->persist($post);
             $entityManager->flush();
             // Add a flash
@@ -109,6 +110,7 @@ class MicroPostController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $comment = $form->getData();
             $comment->setPost($post);
+            $comment->setAuthor($this->getUser());
             $entityManager->persist($comment);
             $entityManager->flush();
             // Add a flash
