@@ -41,7 +41,6 @@ class MicroPostController extends AbstractController
     #[IsGranted('ROLE_WRITER')]
     public function add(
         Request                $request,
-        MicroPostRepository    $posts,
         EntityManagerInterface $entityManager
     ): Response
     {
@@ -77,7 +76,6 @@ class MicroPostController extends AbstractController
     public function edit(
         MicroPost              $post,
         Request                $request,
-        MicroPostRepository    $posts,
         EntityManagerInterface $entityManager
     ): Response
     {
