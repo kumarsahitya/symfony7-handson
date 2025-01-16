@@ -299,7 +299,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->follows;
     }
 
-    public function addFollow(self $follow): static
+    public function follow(self $follow): static
     {
         if (!$this->follows->contains($follow)) {
             $this->follows->add($follow);
@@ -308,7 +308,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function removeFollow(self $follow): static
+    public function unfollow(self $follow): static
     {
         $this->follows->removeElement($follow);
 
