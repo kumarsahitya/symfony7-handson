@@ -41,7 +41,7 @@ class MicroPostController extends AbstractController
         return $this->render(
             'micro_post/follows.html.twig',
             [
-                'posts' => $posts->findAllWithComments(),
+                'posts' => $posts->findAllWithMinLikes(2),
             ]
         );
     }
