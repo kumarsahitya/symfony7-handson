@@ -52,6 +52,9 @@ class MicroPost
     #[ORM\JoinColumn(nullable: false)]
     private ?User $author = null;
 
+    #[ORM\Column]
+    private ?bool $extraPrivacy = null;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -162,6 +165,18 @@ class MicroPost
     public function setAuthor(?User $author): static
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function isExtraPrivacy(): ?bool
+    {
+        return $this->extraPrivacy;
+    }
+
+    public function setExtraPrivacy(bool $extraPrivacy): static
+    {
+        $this->extraPrivacy = $extraPrivacy;
 
         return $this;
     }
