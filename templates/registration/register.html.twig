@@ -5,7 +5,6 @@
 {% block bread %}
     → Register
 {% endblock %}
-{% form_theme registrationForm 'form/fields.html.twig' %}
 
 {% block body %}
     {% for flash_error in app.flashes('verify_email_error') %}
